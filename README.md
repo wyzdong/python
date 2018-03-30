@@ -1,40 +1,52 @@
 # python
 [scrapyd]
 > 项目蛋将被存储的目录。
+
 eggs_dir    = eggs
 > Scrapy日志的存储目录。 如果要禁用存储日志，请将此选项设置为空，
+
 logs_dir    = logs
 > Scrapy项目将被存储的目录。 此选项默认处于禁用状态，因为您需要使用数据库或Feed导出器。 通过覆盖scrapy设置FEED_URI将其设置为非空结果可将抓取的项目源存储到指定的目录。
+
 items_dir   =
-> 每个蜘蛛保持完成的工作数量。 默认为5.这是指日志和项目。
-> 此设置在以前的版本中被命名为logs_to_keep。
+> 每个蜘蛛保持完成的工作数量。 默认为5.这是指日志和项目。此设置在以前的版本中被命名为logs_to_keep。
+
 jobs_to_keep = 5
 > 项目数据库将被存储的目录（这包括蜘蛛队列）。
+
 dbs_dir     = dbs
-> 将开始的并发Scrapy进程的最大数量。 如果未设置或0，
-> 它将使用系统中可用的cpus数量乘以max_proc_per_cpu选项中的值。 默认为0。
+> 将开始的并发Scrapy进程的最大数量。 如果未设置或0，它将使用系统中可用的cpus数量乘以max_proc_per_cpu选项中的值。 默认为0。
+
 max_proc    = 0
 > 每个cpu将启动的最大并发Scrapy进程数。 默认为4。
+
 max_proc_per_cpu = 4
 > 保留在启动器中的完成进程的数量。 默认为100.这仅反映在网站/作业端点和相关的json web服务上。
+
 finished_to_keep = 100
 > 用于轮询队列的时间间隔，以秒为单位。 默认为5.0。 可以是浮点数，如0.2
+
 poll_interval = 5.0
 > 绑定地址
-#bind_address = 127.0.0.1
+
+bind_address = 127.0.0.1
 bind_address = 192.168.11.11
+
 > 端口
 http_port   = 6800
 > 是否启用调试模式。 默认为关闭。 当启用调试模式时，当处理JSON API调用时出现错误时，将返回完整的Python回溯（作为纯文本响应）。
+
 debug       = off
 > 将用于启动子流程的模块。 您可以使用自己的模块自定义从Scrapyd启动的Scrapy进程。
+
 runner      = scrapyd.runner
 > 返回要使用的（Twisted）应用程序对象的函数。 如果要通过添加和删除自己的组件和服务来扩展Scrapyd，可以使用此选项。
+
 application = scrapyd.app.application
 
 launcher    = scrapyd.launcher.Launcher
-> 代表到达scrapyd的接口的扭曲网络资源。 Scrapyd包含与网站的接口，
-> 以提供对应用程序Web资源的简单监控和访问。 此设置必须提供扭曲的Web资源的根类。
+> 代表到达scrapyd的接口的扭曲网络资源。 Scrapyd包含与网站的接口，以提供对应用程序Web资源的简单监控和访问。 此设置必须提供扭曲的Web资源的根类。
+
 webroot     = scrapyd.website.Root
 
 [services]
